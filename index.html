@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanssem Design Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #153f73;
+      --deep-blue: #0b2748;
+      --soft-blue: #eaf1f8;
+      --warm-white: #f8f5ef;
+      --sand: #e8dfd0;
+      --text: #1f2933;
+      --muted: #667085;
+      --line: #d9d2c4;
+      --shadow: 0 18px 45px rgba(15, 35, 55, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--warm-white);
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      overflow: hidden;
+    }
+
+    header {
+      min-height: 92vh;
+      background: linear-gradient(135deg, rgba(11, 39, 72, 0.94), rgba(21, 63, 115, 0.86)), url("images/cover-spread.png") center/cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 7vw 72px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo {
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero {
+      max-width: 960px;
+      margin-top: 120px;
+    }
+
+    .eyebrow {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--sand);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 8vw, 7.6rem);
+      max-width: 900px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .section {
+      padding: 96px 7vw;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 4rem);
+      color: var(--deep-blue);
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #3f4b57;
+      max-width: 760px;
+    }
+
+    .meta-card {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(217, 210, 196, 0.7);
+    }
+
+    .meta-row {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta-row:last-child {
+      border-bottom: none;
+    }
+
+    .meta-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--deep-blue);
+    }
+
+    .blue-band {
+      background: var(--deep-blue);
+      color: white;
+    }
+
+    .blue-band .section-title,
+    .blue-band h3 {
+      color: white;
+    }
+
+    .blue-band .lead,
+    .blue-band p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .process-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 26px;
+      border-radius: 22px;
+    }
+
+    .process-number {
+      font-weight: 700;
+      color: var(--sand);
+      margin-bottom: 34px;
+    }
+
+    .process-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .gallery-header .lead {
+      max-width: 540px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+    }
+
+    .spread-card {
+      background: white;
+      padding: 18px;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(217, 210, 196, 0.7);
+    }
+
+    .spread-card figcaption {
+      padding: 18px 4px 6px;
+    }
+
+    .spread-card h3 {
+      color: var(--deep-blue);
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+
+    .spread-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+
+    .insight-card {
+      background: var(--soft-blue);
+      padding: 32px;
+      border-radius: 24px;
+      border: 1px solid rgba(21, 63, 115, 0.08);
+    }
+
+    .insight-card h3 {
+      color: var(--deep-blue);
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .reflection {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .quote-box {
+      background: white;
+      padding: 42px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      border-left: 8px solid var(--blue);
+    }
+
+    .quote-box p {
+      font-family: "Playfair Display", serif;
+      color: var(--deep-blue);
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1.15;
+    }
+
+    footer {
+      background: var(--deep-blue);
+      color: white;
+      padding: 44px 7vw;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    @media (max-width: 920px) {
+      header {
+        min-height: 78vh;
+      }
+
+      .intro-grid,
+      .reflection,
+      .gallery-grid,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-header {
+        display: block;
+      }
+
+      .gallery-header .lead {
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      header {
+        padding: 22px 6vw 56px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 72px 6vw;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-card,
+      .quote-box {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header>
+      <nav>
+        <div class="logo">Hanssem Design Study</div>
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#process">Process</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#insights">Insights</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <p class="eyebrow">Legacy Catalog Digitization · Visual Systems · UX Analysis</p>
+        <h1>Reframing a legacy interior catalog through modern design thinking.</h1>
+        <p>
+          A visual and UX-oriented study of a Hanssem interior catalog, exploring how print-based product storytelling, spatial organization, and editorial hierarchy can inform contemporary digital experiences.
+        </p>
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="overview">
+        <div class="intro-grid">
+          <div>
+            <p class="eyebrow">Project Overview</p>
+            <h2 class="section-title">From print artifact to digital design study.</h2>
+            <p class="lead">
+              This project began with the digitization of an aging Hanssem catalog and evolved into a study of visual systems, interior organization, and UX translation. Rather than treating the catalog as a static archive, the work examines how its layout logic, material storytelling, and modular product presentation can inspire modern interface design.
+            </p>
+          </div>
+
+          <aside class="meta-card">
+            <div class="meta-row">
+              <p class="meta-label">Project Type</p>
+              <p class="meta-value">UX & Visual Design Study</p>
+            </div>
+            <div class="meta-row">
+              <p class="meta-label">Focus Areas</p>
+              <p class="meta-value">Editorial Systems, Spatial Design, Digital Preservation</p>
+            </div>
+            <div class="meta-row">
+              <p class="meta-label">Tools</p>
+              <p class="meta-value">Scanning, Image Cleanup, HTML, CSS</p>
+            </div>
+            <div class="meta-row">
+              <p class="meta-label">Outcome</p>
+              <p class="meta-value">Responsive portfolio case study concept</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section blue-band" id="process">
+        <p class="eyebrow">Process</p>
+        <h2 class="section-title">A careful archival-to-digital workflow.</h2>
+        <p class="lead">
+          The process focused on preserving the original character of the catalog while preparing the material for clear digital presentation.
+        </p>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <p class="process-number">01</p>
+            <h3>Scan</h3>
+            <p>Digitized selected catalog spreads while preserving the original editorial structure and print texture.</p>
+          </article>
+          <article class="process-card">
+            <p class="process-number">02</p>
+            <h3>Clean</h3>
+            <p>Adjusted alignment, cropping, brightness, and contrast to improve readability without over-polishing the archival feel.</p>
+          </article>
+          <article class="process-card">
+            <p class="process-number">03</p>
+            <h3>Curate</h3>
+            <p>Selected spreads that best demonstrate brand consistency, product storytelling, and modular spatial organization.</p>
+          </article>
+          <article class="process-card">
+            <p class="process-number">04</p>
+            <h3>Analyze</h3>
+            <p>Studied visual hierarchy, navigation patterns, layout systems, and their relevance to modern UX design.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="gallery-header">
+          <div>
+            <p class="eyebrow">Selected Spreads</p>
+            <h2 class="section-title">Catalog pages with strong visual and systems value.</h2>
+          </div>
+          <p class="lead">
+            Each selected spread highlights a different aspect of interior product communication, from material contrast to storage logic and editorial hierarchy.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="spread-card">
+            <img src="images/cover-spread.png" alt="Hanssem catalog cover spread with blue geometric layout" />
+            <figcaption>
+              <h3>Cover System</h3>
+              <p>A strong brand-led opening using blue geometric rhythm, contrast, and modular visual structure.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="spread-card">
+            <img src="images/white-oak.png" alt="White oak kitchen catalog spread" />
+            <figcaption>
+              <h3>White Oak</h3>
+              <p>Warm material storytelling with balanced hierarchy between lifestyle photography and product details.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="spread-card">
+            <img src="images/high-glossy-white.png" alt="High glossy white kitchen catalog spread" />
+            <figcaption>
+              <h3>High Glossy White</h3>
+              <p>A clean, modern-feeling spread that uses contrast and reflective surfaces to communicate refinement.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="spread-card">
+            <img src="images/vienna-white&walnut.png" alt="Vienna white and walnut kitchen catalog spread" />
+            <figcaption>
+              <h3>Vienna White & Walnut</h3>
+              <p>Material contrast and overhead spatial composition create a clear sense of modular kitchen planning.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="spread-card">
+            <img src="images/french-oak.png" alt="French oak kitchen catalog spread" />
+            <figcaption>
+              <h3>French Oak</h3>
+              <p>Soft editorial warmth, natural texture, and calm hierarchy give the spread a timeless atmosphere.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="spread-card">
+            <img src="images/closet-systems-page.png" alt="Closet systems catalog spread" />
+            <figcaption>
+              <h3>Closet Systems</h3>
+              <p>A clear example of physical information architecture through categorized storage zones and modular components.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="insights">
+        <p class="eyebrow">Design Insights</p>
+        <h2 class="section-title">What legacy print systems can teach modern UX.</h2>
+        <p class="lead">
+          The catalog shows how visual hierarchy, modular organization, and spatial storytelling were already solving user-centered problems before those ideas were commonly described as digital UX patterns.
+        </p>
+
+        <div class="insight-grid">
+          <article class="insight-card">
+            <h3>Editorial hierarchy guides attention.</h3>
+            <p>Large lifestyle images establish mood first, while smaller detail modules support practical decision-making.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Interior systems behave like interface systems.</h3>
+            <p>Cabinets, closets, and kitchen zones function like components arranged into a coherent user experience.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Print navigation shaped product discovery.</h3>
+            <p>Contents pages, category sequencing, and repeated visual patterns helped users move through complex product options.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section blue-band">
+        <div class="reflection">
+          <div>
+            <p class="eyebrow">Reflection</p>
+            <h2 class="section-title">A bridge between physical environments and digital experience.</h2>
+          </div>
+          <div class="quote-box">
+            <p>Good systems are not limited to screens. They can be found in rooms, objects, catalogs, and the way people move through information.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>Hanssem Design Study</strong>
+      <p>Legacy catalog digitization, visual systems, and UX analysis.</p>
+    </footer>
+  </div>
+</body>
+</html>
