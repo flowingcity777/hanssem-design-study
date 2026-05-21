@@ -53,7 +53,7 @@ Rather than treating the catalog as a static print artifact, the study examines 
 
 ## Live Preview
 
-[Add GitHub Pages link here]
+[https://flowingcity777.github.io/hanssem-design-study/]
 
 ---
 
